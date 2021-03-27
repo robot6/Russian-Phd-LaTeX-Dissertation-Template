@@ -24,6 +24,9 @@
 %%   polyama at yahoo dot com <Maksym Polyakov>
 %%
 
+%% Japanese references:
+%%         https://waseda-jp.libguides.com/research-navi/howto_sanko/en
+
 
 
 %%
@@ -375,7 +378,7 @@ FUNCTION {bbl.vvolume} %  { "\bblVolume{}" }
 if$}
 
 FUNCTION {bbl.vvol}    %  { "\bblVol{}" }
-{ curlanguage "english" = curlanguage "french" = or curlanguage "italian" = or
+{ curlanguage "english" = curlanguage "french" = or curlanguage "italian" = or curlanguage "japanese" = or
    {"Vol."}
    { curlanguage "ukrainian" = curlanguage "russian" = or
       {"Т."}
@@ -432,7 +435,7 @@ FUNCTION {bbl.of}      %  { "\bblof{}" }
 if$}
 
 FUNCTION {bbl.etal}      %  { "\bblof{}" }
-{ curlanguage "english" =
+{ curlanguage "english" = curlanguage "japanese" = or
    {"et~al."}
    { curlanguage "german" =
       { "u.~a." }
@@ -472,7 +475,7 @@ FUNCTION {bbl.number}  %  { "\bblnumber{}" }
 if$}
 
 FUNCTION {bbl.nr}     %   { "\bblno{}" }
-{ curlanguage "english" =
+{ curlanguage "english" = curlanguage "japanese" = or
    {"no."}
    { curlanguage "italian" =
       { "no" }
@@ -542,12 +545,15 @@ if$}
 
 FUNCTION {bbl.ppages}%    { "\bblPp." }
 { curlanguage "english" = curlanguage "french" = or curlanguage "italian" = or
-   {"P."} %%%% { "Pp." }
+   {"p."} %%%% { "Pp." }
    { curlanguage "ukrainian" = curlanguage "russian" = or
-      {"{С.}"}
+      {"{с.}"}
       { curlanguage "german" =
          {"S."}
+	 { curlanguage "japanese" =
+	   {"p."}
          {"language is not defined: " language "ppages" * * warning$ "P."}
+	 if$}
       if$}
    if$}
 if$}
